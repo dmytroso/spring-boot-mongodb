@@ -5,6 +5,6 @@ import java.math.BigDecimal;
 public class Expence {
     private String id;
     private String expenceName;
-    private ExpenceCategory expenceCategory;
+    private ExpenseCategory expenseCategory;
     private BigDecimal expenceAmount;
 }
