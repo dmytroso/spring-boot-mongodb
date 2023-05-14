@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/expense")
+
 public class ExpenseController {
     private final ExpenseService expenseService;
 
@@ -40,7 +41,7 @@ public class ExpenseController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteExpense(String id) {
+    public ResponseEntity deleteExpense(@PathVariable String id) {
         expenseService.deleteExpense(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
