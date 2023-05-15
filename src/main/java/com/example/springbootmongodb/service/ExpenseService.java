@@ -17,13 +17,14 @@ public class ExpenseService {
     public void addExpense(Expense expense) {
         expenseRepository.insert(expense);
     }
+
     public void updateExpense(Expense expense) {
-        Expense savedExxpense = expenseRepository.findById(expense.getId())
+        Expense savedExpense = expenseRepository.findById(expense.getId())
                 .orElseThrow(() -> new RuntimeException(String.format("Cannot Find by ID %s", expense.getId())));
 
-        savedExxpense.setExpenseName(expense.getExpenseName());
-        savedExxpense.setExpenseAmount(expense.getExpenseAmount());
-        savedExxpense.setExpenseCategory(expense.getExpenseCategory());
+        savedExpense.setExpenseName(expense.getExpenseName());
+        savedExpense.setExpenseAmount(expense.getExpenseAmount());
+        savedExpense.setExpenseCategory(expense.getExpenseCategory());
 
         expenseRepository.save(expense);
     }
@@ -31,6 +32,7 @@ public class ExpenseService {
     public List<Expense> getAllExpense() {
         return expenseRepository.findAll();
     }
+
     public Expense getExpenseByName(String name) {
         return expenseRepository.findByName(name)
                 .orElseThrow(() -> new RuntimeException(String.format("Cannot Find Expense by Name %s", name)));
